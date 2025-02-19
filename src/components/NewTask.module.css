@@ -1,0 +1,123 @@
+.content {
+  max-width: 46.125rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -5rem 5rem auto;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.content input {
+  width: 100%;
+  max-width: 39.875rem;
+  height: 3.375rem;
+  border-radius: 8px;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  padding-left: 1rem;
+  color: var(--gray-100);
+  
+}
+
+.content input:focus {
+  border: 1px solid var(--purple);
+}
+
+.content input::placeholder {
+  color: var(--gray-300);
+  
+  opacity: 80%;
+}
+
+.content input:focus::placeholder {
+  color: var(--gray-100);
+  opacity: 100%;
+  transition: 0.05s ease-in-out;
+}
+
+
+
+.content button {
+  display: flex;
+  align-items: center;
+  gap: 0.225rem;
+  padding: 1rem;
+  height: 3.375rem;
+  border-radius: 8px;
+  background: var(--blue-dark);
+  border: none;
+  color: var(--gray-100);
+  font-weight: 700;
+  transition: 0.05s ease-in-out 
+  
+  ;
+}
+
+.content button:hover {
+  background: var(--blue);
+}
+
+.content button:focus {
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 46.125rem;
+  width: 100%;
+}
+
+.container > * {
+  width: 100%;
+  padding: 0.2rem 1rem;
+  display: flex;
+}
+
+.containerHeader {
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 auto;
+  margin-bottom: 1rem;
+}
+
+.headerLeft, .headerRight {
+  display: flex;
+  gap: 0.275rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerLeft > p {
+  color: var(--blue);
+  font-size: 400;
+  font-weight: bold;
+}
+
+.headerLeft span {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.1rem 0.6rem;
+  border-radius: 16px;
+  font-weight: bold;
+}
+
+.headerRight > p {
+  color: var(--purple);
+  font-size: 400;
+  font-weight: bold;
+}
+
+.headerRight span {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.2rem 0.6rem;
+  padding-top: 0.3rem;
+  border-radius: 16px;
+  font-weight: bold;
+}
