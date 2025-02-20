@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+Todo List - Rocketseat
+Esse é um projeto de lista de tarefas (Todo List), criado durante o curso da Rocketseat, com o objetivo de aprender e aplicar os conceitos de desenvolvimento utilizando React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Tecnologias Utilizadas
+React: Biblioteca JavaScript para a construção da interface de usuário.
+JavaScript (ES6+): Linguagem de programação utilizada no desenvolvimento.
+CSS/Styled Components: Estilização da aplicação.
+Git e GitHub: Controle de versão e hospedagem do código.
 
-Currently, two official plugins are available:
+(Você pode adicionar um print da tela ou um GIF da aplicação em funcionamento aqui)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Como Rodar o Projeto
+Para rodar o projeto localmente, siga os passos abaixo:
 
-## Expanding the ESLint configuration
+1. Clone o repositório:
+git clone https://github.com/Storytellerds/todo-list-rocketseat.git
+1. Navegue até a pasta do projeto:
+cd todo-list-rocketseat
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Instale as dependências:
+npm install
 
-- Configure the top-level `parserOptions` property like this:
+1. Inicie a aplicação:
+npm start
+A aplicação estará disponível no seu navegador no endereço http://localhost:3000.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+💡 Funcionalidades
+Adicionar tarefas: Permite adicionar novas tarefas à lista.
+Marcar tarefas como concluídas: Ao clicar em uma tarefa, ela será marcada como concluída.
+Remover tarefas: Você pode remover tarefas da lista.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+📝 Licença
+Este projeto é licenciado sob a MIT License.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
