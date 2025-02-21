@@ -1,7 +1,7 @@
 import { PlusCircle } from '@phosphor-icons/react' 
 import styles from './NewTask.module.css'
 import { Task } from './Task'
-import { FormEvent, useState } from 'react'
+import { FormEvent, InvalidEvent, useState } from 'react'
 
 interface TaskProps {
   text: string;
@@ -36,6 +36,11 @@ export function NewTask() {
     setTasks(updateTasks)
   }
 
+  function handleDeleteTask(taskToDelete: number) {
+    const filteredTasks = tasks.filter(t => t.id!== taskToDelete)
+    setTasks(filteredTasks)
+  }
+
   const completedTasks = tasks.filter(t => t.completed).length
 
   return(
@@ -46,6 +51,7 @@ export function NewTask() {
           placeholder="Adicionar nova tarefa..." 
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
+          
           />
         <button type='submit'>
           Criar
@@ -70,6 +76,7 @@ export function NewTask() {
             key={task.id}
             task={task}
             onChangeCompleted={handleUpdateCheckbox}
+            onDeleteTask={handleDeleteTask}
           />
         )
       })}

@@ -8,9 +8,14 @@ interface TaskProps {
     id: number,
   };
   onChangeCompleted: (id: number) => void;
+  onDeleteTask: (id: number) => void;
 }
 
-export function Task({ task, onChangeCompleted }: TaskProps) {
+export function Task({ task, onChangeCompleted, onDeleteTask }: TaskProps) {
+
+  const handleDeleteTask = () => {
+    onDeleteTask(task.id)
+  }
   return(   
     <main className={styles.mainContent}>
       <ul>
@@ -24,7 +29,7 @@ export function Task({ task, onChangeCompleted }: TaskProps) {
             />
             <label htmlFor="task1">{task.text}</label>            
           </div>
-          <button><Trash width={20} height={20}/></button>
+          <button onClick={handleDeleteTask} title='Deletar Atividade'><Trash width={20} height={20}/></button>
         </li>
       </ul>
     </main>   
