@@ -3,20 +3,40 @@ import styles from './NewTask.module.css'
 import { Task } from './Task'
 import { FormEvent, useState } from 'react'
 
+interface TaskProps {
+  text: string;
+  completed: boolean;
+  id: number;
+}
+
 export function NewTask() {
 
-  const [tasks, setTasks] = useState<string[]>([])
+  const [tasks, setTasks] = useState<TaskProps[]>([])
   const [taskInput, setTaskInput] = useState('')
+  const [nextId, setNextId] = useState(1)
 
   function handleCreateNewTask(e: FormEvent){
     e.preventDefault();
 
     if (taskInput.trim() === '') return
 
-    setTasks([...tasks, taskInput]);
+    const newTask = {text: taskInput, completed: false, id: nextId}
+
+    setTasks([...tasks, newTask]);
 
     setTaskInput('');
+
+    setNextId(nextId + 1);
   }
+
+  function handleUpdateCheckbox(id: number){
+    const updateTasks = tasks.map(t =>
+      t.id === id ? {...t, completed: !t.completed} : t
+    )
+    setTasks(updateTasks)
+  }
+
+  const completedTasks = tasks.filter(t => t.completed).length
 
   return(
     <div  className={styles.container}>      
@@ -40,15 +60,16 @@ export function NewTask() {
         </div>
         <div className={styles.headerRight}>
           <p>Concluídas</p>
-          <span>0 de {tasks.length}</span>
+          <span>{completedTasks} de {tasks.length}</span>
         </div>
       </header>
 
-      {tasks.map((task, index) => {
+      {tasks.map((task) => {
         return(
           <Task 
-            key={index}
+            key={task.id}
             task={task}
+            onChangeCompleted={handleUpdateCheckbox}
           />
         )
       })}
