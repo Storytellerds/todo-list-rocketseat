@@ -18,20 +18,25 @@ export function Task({ task, onChangeCompleted, onDeleteTask }: TaskProps) {
   }
   return(   
     <main className={styles.mainContent}>
-      <ul>
-        <li>
-          <div className={styles.list}>
-            <input 
-              type="checkbox" 
-              id={`${task.id}`} 
-              checked={task.completed}
-              onChange={() => onChangeCompleted(task.id)}
-            />
-            <label htmlFor="task1">{task.text}</label>            
-          </div>
-          <button onClick={handleDeleteTask} title='Deletar Atividade'><Trash width={20} height={20}/></button>
-        </li>
-      </ul>
+      <li>
+        <div className={styles.list}>
+          <input 
+            type="checkbox" 
+            id={`${task.id}`} 
+            checked={task.completed}
+            onChange={() => onChangeCompleted(task.id)}
+            aria-label={task.text}
+          />
+          <label htmlFor={`${task.id}`}>{task.text}</label>            
+        </div>
+        <button 
+          onClick={handleDeleteTask} 
+          title='Deletar Atividade'
+          aria-label={`Deletar a atividade ${task.text}`}
+        >
+          <Trash width={20} height={20}/>
+        </button>
+      </li>
     </main>   
   )
 }

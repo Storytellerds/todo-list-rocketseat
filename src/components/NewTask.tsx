@@ -1,7 +1,7 @@
 import { PlusCircle } from '@phosphor-icons/react' 
 import styles from './NewTask.module.css'
 import { Task } from './Task'
-import { FormEvent, InvalidEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 interface TaskProps {
   text: string;
@@ -70,17 +70,20 @@ export function NewTask() {
         </div>
       </header>
 
-      {tasks.map((task) => {
-        return(
-          <Task 
-            key={task.id}
-            task={task}
-            onChangeCompleted={handleUpdateCheckbox}
-            onDeleteTask={handleDeleteTask}
-          />
-        )
-      })}
-      
+      <main>
+        <ul>
+          {tasks.map((task) => {
+            return(
+              <Task 
+                key={task.id}
+                task={task}
+                onChangeCompleted={handleUpdateCheckbox}
+                onDeleteTask={handleDeleteTask}
+              />
+            )
+          })}
+        </ul>  
+      </main>
     </div>
   )
 }
